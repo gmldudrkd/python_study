@@ -1,3 +1,37 @@
+# 숫자 카드 게임
+
+# 행열의 수
+n, m = map(int, input().split())
+
+# 좌표 구하기
+result_row = 0 # 행에서 가장 큰 수
+result = 0 # 열 중에 가장 작은 수
+
+# 행의 최소, 그 중 최대 찾기 by HY
+'''
+for x in range(n):
+    data = list(map(int, input().split()))
+    for y in range(m):
+        if y == 0:
+            result_row = data[y]
+        if result_row > data[y]:
+            result_row = data[y]
+
+    if x == 0:
+        result = result_row
+    if result <= result_row:
+        result = result_row
+'''
+# 행의 최소, 그 중 최대 찾기 by Book
+for i in range(n):
+    data = list(map(int, input().split()))
+    min_value = min(data) # 현재 줄에서 가장작은 데이터
+    result = max(result, min_value) # 가장작은 것들 중 가장 큰수
+
+print(result)
+
+
+'''
 #큰 수의 법칙2
 
 # n,m,k를 공백으로 구분하여 입력받음
@@ -14,7 +48,7 @@ while True:
     for i in range(k):
         if m == 0:
             break
-        result += first
+        result += firstvkdl
         m -= 1
     if m == 0:
         break
@@ -22,3 +56,4 @@ while True:
     m -= 1
 
 print(result)
+'''
