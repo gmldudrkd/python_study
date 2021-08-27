@@ -1,4 +1,4 @@
-# 1이 될 때까지
+# 1이 될 때까지2
 m, n = map(int, input().split())
 
 min_chk = ''
