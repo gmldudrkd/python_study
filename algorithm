@@ -4,15 +4,15 @@ m, n = map(int, input().split())
 min_chk = ''
 min_no = 0
 while min_chk == '':
-
     if(m % n == 0):
-        min_chk = 'Y'
+        m = m / n
         min_no += 1
     else:
         m -= 1
         min_no += 1
-    print(m)
-    print(min_no)
+    if(m == 1):
+        min_chk = 'Y'
+
 print(min_no)
 
 
