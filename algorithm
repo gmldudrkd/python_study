@@ -1,3 +1,90 @@
+
+'''
+# 시각 찾기
+
+# by.book > 완전탐색(100만개 이하일때 적합) : 모든경우의 수를 다 계산
+# 전체시간을 스트링으로 돌리며 3찾기 , 24*60*60 정도의 경우의 수는 계산 가능
+h_r = int(input())
+count = 0
+for h in range(h_r+1):
+    for m in range(60):
+        for s in range(60):
+            if '3' in str(h)+str(m)+str(s):
+                count += 1
+print(count)
+
+# by.hy
+n = int(input())
+count, count_h =0, 0
+# 분, 초 중 3이 들어갈 경우
+for i in range(60):
+    if '3' in str(i):
+        count += 1
+
+# 시간 중 3이 들어갈 경우
+for j in range(n+1):
+    if '3' in str(j):
+        count_h += 1
+
+print(count)
+print(count_h)
+# 분 당 횟수 (3이 없는 분 + 3이 들어가는 분)
+result = (count * (60-count)) + count*60
+# 시간 당 횟수 (3이 포함된 시간 + 3이 포함되지 않는 시간(분 당 횟수만큼만)
+result_h = (count_h * 60 * 60) + result * ((n+1)-count_h)
+
+print(result_h)
+'''
+
+
+'''
+# 상하좌우 길찾기
+
+# by.book > 시뮬레이션 : 제시한 알고리즘을 한단계씩 
+# swith같은 if문 나열하지 않고 작성가능
+n = input().split()
+x, y = 1, 1
+plans = input().split()
+# x와 y의 움직임
+dx = [0, 0, -1, 1]
+dy = [-1, 1, 0, 0]
+move_types = ['L', 'R', 'U', 'D']
+
+for plan in plans:
+    for i in range(len(move_types)):
+        if plan == move_types[i]:
+            nx = x + dx[i]
+            ny = y + dy[i]
+    if nx < 1 or ny < 1 or nx > n or ny > n:
+        # 범위를 벗어날 경우 패스
+        continue
+    x, y = nx, ny
+print(x, y)
+
+# by. HY
+n = map(int, input())
+m = list(input().split())
+x=1
+y=1
+for i in range(len(m)):
+    if m[i] == "L":
+        if y-1 != 0:
+            y -= 1
+    elif m[i] == "R":
+        if y + 1 <= n:
+            y += 1
+    elif m[i] == "U":
+        if x-1 != 0:
+            x -= 1
+    elif m[i] == "D":
+        if x + 1 <= n:
+            x += 1
+
+print(x,end=' ')
+print(y)
+'''
+
+'''
 # 1이 될 때까지2
 m, n = map(int, input().split())
 
@@ -14,7 +101,7 @@ while min_chk == '':
         min_chk = 'Y'
 
 print(min_no)
-
+'''
 
 '''
 # 숫자 카드 게임2
