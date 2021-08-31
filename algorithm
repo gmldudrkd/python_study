@@ -1,4 +1,5 @@
 # 왕실의 나이트
+n, m = map(int,input().split())
 
 
 '''
